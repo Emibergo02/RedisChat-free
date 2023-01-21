@@ -39,7 +39,6 @@ public final class Config {
     public String rate_limited = "<red>You've been rate limited</red>";
     public String ignoring_list = "<aqua>Player ignored</aqua><br><green>%list%</green>";
     public String ignoring_player = "<green>Toggled ignoring of %player%</green>";
-    public String spychat_format = "<red>%sender% said to %receiver% : %message%</red>";
     public int rate_limit = 3;
     public int rate_limit_time_seconds = 5;
     public boolean debug = false;

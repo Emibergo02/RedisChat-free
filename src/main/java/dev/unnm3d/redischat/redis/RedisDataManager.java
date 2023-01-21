@@ -186,9 +186,6 @@ public class RedisDataManager extends RedisAbstract {
                 if (chatPacket.isPrivate()) {
                     long init = System.currentTimeMillis();
                     for (Player player : Bukkit.getOnlinePlayers()) {
-                        if (player.hasPermission(Permission.REDIS_CHAT_SPYCHAT.getPermission())) {//Spychat
-                            plugin.getComponentProvider().sendSpyChat(chatPacket.getReceiverName(), chatPacket.getSenderName(), player, chatPacket.getMessage());
-                        }
                         if (player.getName().equals(chatPacket.getReceiverName())) {//Private message
                             plugin.getRedisDataManager().isIgnoring(chatPacket.getReceiverName(), chatPacket.getSenderName())
                                     .thenAccept(ignored -> {

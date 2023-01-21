@@ -1,0 +1,96 @@
+name: RedisChat
+version: '${project.version}'
+main: dev.unnm3d.redischat.RedisChat
+author: Unnm3d
+libraries:
+  - io.lettuce:lettuce-core:6.2.2.RELEASE
+depend:
+  - PlaceholderAPI
+loadbefore:
+  - CMI
+  - CMILib
+  - Essentials
+  - EssentialsChat
+commands:
+  redischat:
+    description: RedisChat command
+    usage: /redischat <reload>
+    permission: redischat.admin
+  ignore:
+    description: Ignore command
+    permission: redischat.ignore
+  msg:
+    description: Sends a private message to a player
+    aliases:
+      - message
+    usage: /msg <player> <message>
+    permission: redischat.message
+  reply:
+    description: Replies to the last player who sent you a message
+    aliases: [r]
+    permission: redischat.message
+  broadcast:
+    description: Broadcasts a message to the server
+    aliases: [bc]
+    usage: /broadcast <message>
+    permission: redischat.broadcast
+  clearchat:
+    description: Clears the chat
+    aliases: [cc]
+    usage: /clearchat
+    permission: redischat.clearchat
+  invshare:
+    description: 'Invshare'
+  spychat:
+    description: Spychat command
+    aliases: [spyc]
+    permission: redischat.spycommand
+  announce:
+    description: RedisChat announce
+    usage: /announce <start/stop> announceName
+    permission: redischat.announce
+permissions:
+  redischat.spychat:
+    description: You are spying the chat if it is true
+    default: false
+  redischat.useformatting:
+    description: Allows you to send formatted messages
+    default: op
+  redischat.broadcast:
+    description: Allows you to use the /broadcast command
+    default: op
+  redischat.clearchat:
+    description: Allows you to use the /clearchat command
+    default: op
+  redischat.message:
+    description: Allows you to use the /msg command
+    default: op
+  redischat.ignore:
+    description: Allows you to use the /ignore command
+    default: op
+  redischat.spycommand:
+    description: Allows you to use the /spychat command
+    default: op
+  redischat.bypass_rate_limit:
+    description: Bypass the rate limit
+    default: false
+  redischat.admin:
+    description: Allows you to use the /redischat command
+    default: op
+    children:
+      - redischat.useformatting
+      - redischat.broadcast
+      - redischat.clearchat
+      - redischat.message
+      - redischat.ignore
+      - redischat.spycommand
+      - redischat.announce
+      - redischat.bypass_rate_limit
+  redischat.default:
+    description: Allows you to use default commands
+    default: true
+    children:
+      - redischat.message
+      - redischat.ignore
+
+
